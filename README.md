@@ -6,7 +6,7 @@
 * tout en minuscule
 * pas d'abbréviations des mots sauf pour des expressions bien connues et longue (e.g. "i18n")
 * pas de mots-clés réservé (par exemple `user` sur PGSQL)
-* nom de table au singulier, e.g. `user`
+* table and view names should be singular, e.g. `team` not `teams` ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations))
 * nom des champs/tables en **camelCase**, e.g. `createdAt`
 * utiliser uniquement underscore pour les foreign-keys des tables, e.g. `user_id`
 * utiliser des UUID en type de  PK & FK
