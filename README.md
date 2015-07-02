@@ -30,7 +30,7 @@ select <fields> from
   table_1
   inner join table_2
     on table_1.table_1_id =
-       table_2.table_2_id
+       table_2.table_1_id
 ```
 
 * utiliser les enum PG qui sont des types
