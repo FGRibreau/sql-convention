@@ -56,11 +56,11 @@ create table reservation(
 ```
 
 * standard names for indexes in PostgreSQL are: `{tablename}_{columnname(s)}_{suffix}` (e.g. `item_a_b_pkey`) where the suffix is one of the following:
-  * Primary Key constraint: `pkey`
-  * Foreign key: `fkey`
+  * Primary Key constraint: `pk`
+  * Foreign key: `fk`
   * Unique constraint: `key`
-  * Check constraint: `check`
-  * Exclusion constraint: `excl`
+  * Check constraint: `chk`
+  * Exclusion constraint: `exl`
   * Any other kind of index: `idx`
 
 ([source](http://stackoverflow.com/questions/4107915/postgresql-default-constraint-names/4108266#4108266))
