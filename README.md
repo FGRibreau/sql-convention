@@ -8,14 +8,13 @@
 * table and view names should be singular and in camelCase, e.g. `team` not `teams` ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations))
 * nom des champs/tables en **camelCase**, e.g. `createdAt`
 * utiliser uniquement underscore pour les foreign-keys des tables, e.g. `user_id`
-* utiliser des UUID en type de  PK & FK
-* chaque table avoir avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) (et `updatedAt` si la BDD est mutable)
-* utiliser une lib de data-mapping (anorm/slick) mais pas d'ORM
+* utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/))
+* chaque table doit avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) (et `updatedAt` si la table contient des donnés)
+* utiliser une librairie de data-mapping (e.g. [doobie](https://github.com/tpolecat/doobie)) et non un ORM
 * utiliser BNCF (au dessus de la 3NF) (cf normal form)
 * always set column to NOT NULL by default, use NULL only when necessary
 * never use ON DELETE CASCADE, set `deletedAt` to `NOW()`
-* leverage using, so instead of:
-
+* leverage `using`, so instead of:
 ```
 select <fields> from
   table_1
@@ -54,6 +53,8 @@ create table reservation(
     exclude using gist (dates with &&)
 );
 ```
+
+* use row-level-security to ensure R/U/D access on each table rows
 
 * standard names for indexes in PostgreSQL are: `{tablename}_{columnname(s)}_{suffix}` (e.g. `item_a_b_pkey`) where the suffix is one of the following:
   * Primary Key constraint: `pk`
