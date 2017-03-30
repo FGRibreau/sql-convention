@@ -9,7 +9,7 @@
 * nom des champs/tables en **camelCase**, e.g. `createdAt`
 * utiliser uniquement underscore pour les foreign-keys des tables, e.g. `user_id`
 * utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/))
-* chaque table doit avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) (et `updatedAt` si la table contient des donnés)
+* chaque table doit avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) (et `updatedAt` si la table contient des données)
 * utiliser une librairie de data-mapping (e.g. [doobie](https://github.com/tpolecat/doobie)) et non un ORM
 * utiliser BNCF (au dessus de la 3NF) (cf normal form)
 * always set column to NOT NULL by default, use NULL only when necessary
