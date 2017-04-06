@@ -1,13 +1,13 @@
-# SQL Conventions
+# SQL Conventions (WiP)
 
 ## Data layer
 
-* use PostgreSQL (fallback on SQLite)
+* For SQL use [PostgreSQL](https://www.postgresql.org). Any questions?
 
 ## Application layer
 
-* use PostgREST
-* utiliser une librairie de data-mapping (e.g. [doobie](https://github.com/tpolecat/doobie)) et non un ORM.
+* If your API is only doing mainly data persistence use [Postgrest](https://postgrest.com) is the way to go and only implement the missing part in another process. You can then compose both API with the reverse-proxy.
+* Otherwise, use a data-mapping library (e.g. [doobie](https://github.com/tpolecat/doobie)) not an ORM.
 
 ## Tables/Views
 
