@@ -9,23 +9,36 @@
 * use PostgREST
 * utiliser une librairie de data-mapping (e.g. [doobie](https://github.com/tpolecat/doobie)) et non un ORM.
 
-## Tables
+## Tables/Views
 
 ### Name
 
+* singular ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations)), e.g. `team` not `teams`
+* camelCase, (never snake_case, it's reserved for PK and FK)
+
+### Columns
+
+* Column names in **camelCase**, e.g. `createdAt`
+* Only use underscore for PK and FK columns e.g. (PK) `user_id`, (FK) `organization_id`
+* NOT NULL by default, NULL is the exception
 * pas d'abbréviations des mots sauf pour des expressions bien connues et longue (e.g. "i18n")
-* pas de mots-clés réservé (par exemple `user` sur PGSQL)
-* table and view names should be singular and in camelCase, e.g. `team` not `teams` ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations))
-* nom des champs/tables en **camelCase**, e.g. `createdAt`
-* utiliser uniquement underscore pour les foreign-keys des tables, e.g. `user_id`
-* utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/))
-* chaque table doit avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) et `updatedAt` si la table contient des données. 
+(* pas de mots-clés réservé (par exemple `user` sur PGSQL).)
+* utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/)).
+* `createdAt TIMESTAMPTZ DEFAULT now()`
+* `updatedAt TIMESTAMPTZ DEFAULT now()` unless you plan to leverage event-sourcing
+* `deletedAt TIMESTAMPTZ DEFAULT NULL`:
+  * unless you plan to leverage event-sourcing
+  * don't forget to [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253)
+* Comment each column, explain your rational, explain your decisions, should be in plain english for internal use only
 
 ## Functions
 
 ### Name
 
-- notify[SchemaName][TableName][Event] e.g. notifyAuthenticationUserCreat**ed**(*user_id*): should only format the notification message underneath and use pg_notify. Beware of the [8000 characters limit](http://stackoverflow.com/a/41059797/745121), only send metadata (ids), data should be asked by workers through the API. If you really wish to send data then [pg_kafka](https://github.com/xstevens/pg_kafka) might be a better alternative.
+They are 3 types of functions, `notiy` functions and `private` functions and `public` functions
+- **notify**, format: notify[*SchemaName*][*TableName*][*Event*] (e.g. `notifyAuthenticationUserCreated(user_id)`): should only format the notification message underneath and use pg_notify. Beware of the [8000 characters limit](http://stackoverflow.com/a/41059797/745121), only send metadata (ids), data should be asked by workers through the API. If you really wish to send data then [pg_kafka](https://github.com/xstevens/pg_kafka) might be a better alternative.
+- **private**, format: _[*functionName*] (e.g. `_resetFailedLogin`): must never be exposed through the public schema. Used mainly for consistency and business-rules
+- **public**, format [*functionName*] (e.g. `logIn(email, password)`): must be exposed through the public schema.
 
 ## Triggers
 
@@ -33,11 +46,10 @@
 
 (translation in progress)
 
-## 
+### Columns
 
 * utiliser BNCF (au dessus de la 3NF) (cf normal form)
-* always set column to NOT NULL by default, use NULL only when necessary
-* never use ON DELETE CASCADE, set `deletedAt` to `NOW()`
+
 * leverage `using`, so instead of:
 ```
 select <fields> from
@@ -89,3 +101,9 @@ create table reservation(
   * Any other kind of index: `idx`
 
 ([source](http://stackoverflow.com/questions/4107915/postgresql-default-constraint-names/4108266#4108266))
+
+## Policies
+
+### Name
+
+
