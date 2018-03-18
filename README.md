@@ -41,6 +41,11 @@ They are 3 types of functions, `notiy` functions and `private` functions and `pu
 - **private**, format: _[*functionName*] (e.g. `_resetFailedLogin`): must never be exposed through the public schema. Used mainly for consistency and business-rules
 - **public**, format [*functionName*] (e.g. `logIn(email, password)`): must be exposed through the public schema.
 
+
+## Types
+
+Enum types should be in *singular*, in *camelCase**.
+
 ## Triggers
 
 ### Name
