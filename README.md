@@ -1,4 +1,4 @@
-# SQL Conventions (WiP)
+# SQL Conventions
 
 ## Data layer
 
@@ -20,7 +20,7 @@
 
 * Column names in **camelCase**, e.g. `createdAt`
 * Only use underscore for PK and FK columns e.g. (PK) `user_id`, (FK) `organization_id`
-* NOT NULL by default, NULL is the exception
+* NOT NULL by default, NULL is the exception (think of it as the [maybe Monad](https://github.com/chrissrogers/maybe#why))
 * pas d'abbréviations des mots sauf pour des expressions bien connues et longue (e.g. "i18n")
 (* pas de mots-clés réservé (par exemple `user` sur PGSQL).)
 * utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/)).
@@ -30,6 +30,7 @@
   * unless you plan to leverage event-sourcing
   * don't forget to [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253)
 * Comment each column, explain your rational, explain your decisions, should be in plain english for internal use only
+* Boolean columns must start with either `is` or `has`.
 
 ## Functions
 
