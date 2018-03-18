@@ -2,7 +2,7 @@
 
 ## Data layer
 
-* For SQL use [PostgreSQL](https://www.postgresql.org). Any questions?
+* For SQL use [PostgreSQL](https://www.postgresql.org), it's the most loved relational database, with the biggest open-source community and it's a multi-model database (K/V store, FDW and much more). Any questions?
 
 ## Application layer
 
