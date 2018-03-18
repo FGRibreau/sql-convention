@@ -2,7 +2,7 @@
 
 ## Data layer
 
-* For SQL use [PostgreSQL](https://www.postgresql.org), it's the [most loved relational database](https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-databases) and it's a multi-model database (K/V store, FDW and much more). Any questions?
+* For SQL use [PostgreSQL](https://www.postgresql.org), it's the [most loved relational database (StackOverflow survey 2018)](https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-databases) and it's a multi-model database (K/V store, FDW and much more). Any questions?
 
 ## Application layer
 
