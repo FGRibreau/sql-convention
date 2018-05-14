@@ -34,6 +34,15 @@
 
 ## Constraints
 
+
+General rule is: `{tablename}_{columnname(s)}_{suffix}` (e.g. `tableName_columnNameA_pkey`) where the suffix is one of the following:
+  * Primary Key constraint: `pk`
+  * Foreign key: `fk`
+  * Unique constraint: `key`
+  * Check constraint: `chk`
+  * Exclusion constraint: `exl`
+  * Any other kind of index: `idx`
+
 ### PK - Primary Key
 
 * `tableName_columnName_pk` in case of a single column PK
@@ -114,14 +123,6 @@ create table reservation(
 ```
 
 * use row-level-security to ensure R/U/D access on each table rows
-
-* standard names for indexes in PostgreSQL are: `{tablename}_{columnname(s)}_{suffix}` (e.g. `item_a_b_pkey`) where the suffix is one of the following:
-  * Primary Key constraint: `pk`
-  * Foreign key: `fk`
-  * Unique constraint: `key`
-  * Check constraint: `chk`
-  * Exclusion constraint: `exl`
-  * Any other kind of index: `idx`
 
 ([source](http://stackoverflow.com/questions/4107915/postgresql-default-constraint-names/4108266#4108266))
 
