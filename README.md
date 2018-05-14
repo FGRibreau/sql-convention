@@ -14,7 +14,7 @@
 ### Name
 
 * singular ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations)), e.g. `team` not `teams`
-* camelCase, (never snake_case, it's reserved for PK and FK)
+* camelCase, even for `n-n` tables, never snake_case, it's reserved for PK and FK.
 
 ### Columns
 
