@@ -83,22 +83,25 @@ Enum types should be in *singular*, in *camelCase**.
 * utiliser BNCF (au dessus de la 3NF) (cf normal form)
 
 * leverage `using`, so instead of:
-```
-select <fields> from
-  table_1
-  inner join table_2
-    using (table_1_id)
-```
 
-use:
-
-```
+```sql
 select <fields> from
   table_1
   inner join table_2
     on table_1.table_1_id =
        table_2.table_1_id
 ```
+
+use:
+
+
+```sql
+select <fields> from
+  table_1
+  inner join table_2
+    using (table_1_id)
+```
+
 
 * utiliser les enum PG qui sont des types
 * use the right PostgreSQL types:
