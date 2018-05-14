@@ -32,6 +32,23 @@
 * Comment each column, explain your rational, explain your decisions, should be in plain english for internal use only
 * Boolean columns must start with either `is` or `has`.
 
+## Constraints
+
+### PK - Primary Key
+
+* `tableName_columnName_pk` in case of a single column PK
+* `tableName_columnName1_columnName2_columnName3_pk` in case of multiple columns as primary key (`columnName1`, `columnName2`, `columnName3`)
+
+
+### FK - Foreign key
+
+* `tableNameFrom_column_tableNameTo_column_fk`
+
+### Unique
+
+* `tableNameFrom_column_key` in case of a single column unique constraint
+* `tableName_columnName1_columnName2_columnName3_key` in case of multiple columns as unique (`columnName1`, `columnName2`, `columnName3`)
+
 ## Functions
 
 ### Name
