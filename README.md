@@ -9,6 +9,10 @@
 * If your API is only doing mainly data persistence use [Postgrest](https://postgrest.com) is the way to go and only implement the missing part in another process. You can then compose both API with the reverse-proxy.
 * Otherwise, use a data-mapping library (e.g. [doobie](https://github.com/tpolecat/doobie)) not an ORM.
 
+### Queries
+
+* Don't use BETWEEN ([why](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29))
+
 ## Tables/Views
 
 ### Name
@@ -23,14 +27,15 @@
 * NOT NULL by default, NULL is the exception (think of it as the [maybe Monad](https://github.com/chrissrogers/maybe#why))
 * pas d'abbréviations des mots sauf pour des expressions bien connues et longue (e.g. "i18n")
 (* pas de mots-clés réservé (par exemple `user` sur PGSQL).)
-* utiliser des UUID en type de  PK & FK ([why](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/)).
-* `createdAt TIMESTAMPTZ DEFAULT now()`
+* utiliser des UUID en type de  PK & FK ([pourquoi](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/)), ne pas utiliser serial ([pourquoi](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_serial))
+* `createdAt TIMESTAMPTZ DEFAULT now()` toujours gérer les temps (date, datetime, time, ...) avec timestamptz ([pourquoi](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29)))
 * `updatedAt TIMESTAMPTZ DEFAULT now()` unless you plan to leverage event-sourcing
 * `deletedAt TIMESTAMPTZ DEFAULT NULL`:
   * unless you plan to leverage event-sourcing
   * don't forget to [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253)
 * Comment each column, explain your rational, explain your decisions, should be in plain english for internal use only
 * Boolean columns must start with either `is` or `has`.
+* [Ne pas utiliser char(n)](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29) [même pour des identifiants de taille fixe](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29_even_for_fixed-length_identifiers)
 
 ## Constraints
 
