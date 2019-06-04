@@ -67,7 +67,7 @@ General rule is: `{tablename}_{columnname(s)}_{suffix}` (e.g. `tableName_columnN
 
 ### Name
 
-They are 3 types of functions, `notiy` functions and `private` functions and `public` functions
+They are 3 types of functions, `notify` functions and `private` functions and `public` functions
 - **notify**, format: notify[*SchemaName*][*TableName*][*Event*] (e.g. `notifyAuthenticationUserCreated(user_id)`): should only format the notification message underneath and use pg_notify. Beware of the [8000 characters limit](http://stackoverflow.com/a/41059797/745121), only send metadata (ids), data should be asked by workers through the API. If you really wish to send data then [pg_kafka](https://github.com/xstevens/pg_kafka) might be a better alternative.
 - **private**, format: _[*functionName*] (e.g. `_resetFailedLogin`): must never be exposed through the public schema. Used mainly for consistency and business-rules
 - **public**, format [*functionName*] (e.g. `logIn(email, password)`): must be exposed through the public schema.
