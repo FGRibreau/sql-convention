@@ -2,7 +2,7 @@
 
 ## Data layer
 
-* For SQL use [PostgreSQL](https://www.postgresql.org), it's the [most loved relational database (StackOverflow survey 2018)](https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-databases) and it's a multi-model database (K/V store, FDW and much more). Any questions?
+* For SQL use [PostgreSQL](https://www.postgresql.org), it's the [most loved relational database (StackOverflow survey 2018)](https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-databases) and it's a multi-model database (K/V store, Document store (use jsonb), foreign data wrapper, and much more). Any questions?
 
 ## Application layer
 
@@ -38,7 +38,6 @@
 * [Ne pas utiliser char(n)](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29) [même pour des identifiants de taille fixe](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29_even_for_fixed-length_identifiers)
 
 ## Constraints
-
 
 General rule is: `{tablename}_{columnname(s)}_{suffix}` (e.g. `tableName_columnNameA_pkey`) where the suffix is one of the following:
   * Primary Key constraint: `pk`
@@ -108,7 +107,7 @@ select <fields> from
 ```
 
 
-* utiliser les enum PG qui sont des types
+* don't use PostgreSQL enums you will have issues when you need to remove/add some values. Use a dedicated table instead.
 * use the right PostgreSQL types:
 
 ```
@@ -119,7 +118,7 @@ tstzrange (time range)
 interval (duration)
 ```
 
-* utiliser les tableaux si besoin (permet de gérer la notion "d'ordre" facilement)
+* prefer `jsonb` to sql arrays
 * constraint should be inside your database as much as possible:
 
 ```sql
@@ -138,11 +137,9 @@ create table reservation(
 
 ### Name
 
-
 ### Zero-down time migrations
 
 - [Best practices](https://medium.com/braintree-product-technology/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680)
-
 
 # Things to monitor
 
@@ -260,3 +257,10 @@ order by time_per
 --ORDER BY rows_per
 DESC LIMIT 20;
 ```
+
+
+### Schema design
+
+#### Inspiration
+
+- [Stripe own schema](https://github.com/FGRibreau/stripe-schema)
