@@ -338,7 +338,7 @@ DESC LIMIT 20;
 
 * https://github.com/FGRibreau/stripe-schema[Stripe own schema]
 
-=== Tools
+== Tools
 
 * https://www.postgresql.org/docs/9.4/pgstatstatements.html[pg_stat_statements]
 * https://github.com/darold/pgbadger[A fast PostgreSQL Log Analyzer]
