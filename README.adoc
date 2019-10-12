@@ -100,18 +100,18 @@ multiple columns as unique (`+columnName1+`, `+columnName2+`,
 ==== Name
 
 They are 3 types of functions, `+notify+` functions and `+private+`
-functions and `+public+` functions - *notify*, format:
-notify[_SchemaName_][_TableName_][_Event_]
-(e.g. `+notifyAuthenticationUserCreated(user_id)+`): should only format
-the notification message underneath and use pg_notify. Beware of the
+functions and `+public+` functions
+
+* *notify*, format: notify[_SchemaName_][_TableName_][_Event_] (e.g. `+notifyAuthenticationUserCreated(user_id)+`): should only format the notification message underneath and use pg_notify. Beware of the
 http://stackoverflow.com/a/41059797/745121[8000 characters limit], only
 send metadata (ids), data should be asked by workers through the API. If
 you really wish to send data then
 https://github.com/xstevens/pg_kafka[pg_kafka] might be a better
-alternative. - *private*, format: _[_functionName_]
+alternative.
+* *private*, format: _[`+_functionName_+`]
 (e.g. `+_resetFailedLogin+`): must never be exposed through the public
-schema. Used mainly for consistency and business-rules - *public*,
-format [_functionName_] (e.g. `+logIn(email, password)+`): must be
+schema. Used mainly for consistency and business-rules
+* *public*, format [`+_functionName_+`] (e.g. `+logIn(email, password)+`): must be
 exposed through the public schema.
 
 === Types
@@ -334,12 +334,13 @@ order by time_per
 DESC LIMIT 20;
 ----
 
-=== Schema design
-
-==== Inspiration
+== Schema design
 
 * https://github.com/FGRibreau/stripe-schema[Stripe own schema]
 
-== Tools
+=== Tools
 
+* https://www.postgresql.org/docs/9.4/pgstatstatements.html[pg_stat_statements]
 * https://github.com/darold/pgbadger[A fast PostgreSQL Log Analyzer]
+* https://pganalyze.com[PostgreSQL Performance Monitoring]
+*
