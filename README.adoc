@@ -1,7 +1,7 @@
 :toc:
 :toc-placement!:
 
-== SQL Conventions
+= SQL Conventions
 
 toc::[]
 
