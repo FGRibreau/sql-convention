@@ -343,4 +343,8 @@ DESC LIMIT 20;
 * https://www.postgresql.org/docs/9.4/pgstatstatements.html[pg_stat_statements]
 * https://github.com/darold/pgbadger[A fast PostgreSQL Log Analyzer]
 * https://pganalyze.com[PostgreSQL Performance Monitoring]
-*
+
+
+== Good practices
+
+* https://hakibenita.com/sql-dos-and-donts#use-between-only-for-inclusive-ranges[12 Common Mistakes and Missed Optimization Opportunities in SQL]
