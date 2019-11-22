@@ -347,4 +347,4 @@ DESC LIMIT 20;
 
 == Good practices
 
-* https://hakibenita.com/sql-dos-and-donts#use-between-only-for-inclusive-ranges[12 Common Mistakes and Missed Optimization Opportunities in SQL]
+* https://hakibenita.com/sql-dos-and-donts[12 Common Mistakes and Missed Optimization Opportunities in SQL]
