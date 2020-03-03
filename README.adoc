@@ -160,7 +160,7 @@ tstzrange (time range)
 interval (duration)
 ....
 
-* prefer `+jsonb+` to sql arrays
+* prefer `+jsonb+` to `json` and sql arrays
 * constraint should be inside your database as much as possible:
 
 [source,sql]
