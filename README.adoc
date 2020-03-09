@@ -352,14 +352,14 @@ DESC LIMIT 20;
 == Where to host PostgreSQL Database
 
 * Scaleway Managed PostgreSQL:
-  * Pros
-    * multi-schema support
-    * configuration options are editable
-    * user/role management is self-service
-  * Cons
-    * /
+  ** Pros
+    *** multi-schema support
+    *** configuration options are editable
+    *** user/role management is self-service
+  ** Cons
+    *** /
 * OVH Cloud SQL
-  * Pros
-    * /
-  * Cons
-    * no multi-schema support
+  ** Pros
+    *** /
+  ** Cons
+    *** no multi-schema support
