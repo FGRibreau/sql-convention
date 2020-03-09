@@ -39,7 +39,7 @@ for PK and FK.
 
 ==== Columns
 
-* Column names in *snake_case*, e.g. `+created_at+`. Because in PostgreSQL (https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
+* Column names in *snake_case*, e.g. `+created_at+` (Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
 * Use double underscore for PK and FK columns e.g. (PK) `+user__id+`, (FK)
 `+organization__id+`
 * NOT NULL by default, NULL is the exception (think of it as the
