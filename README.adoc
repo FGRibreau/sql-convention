@@ -339,6 +339,10 @@ DESC LIMIT 20;
 
 == Where to host PostgreSQL Database
 
+* Google Cloud PostgreSQL
+  ** Pros
+  ** Cons
+   *** No support for plv8
 * Scaleway Managed PostgreSQL:
   ** Pros
     *** multi-schema support
