@@ -1,7 +1,7 @@
 :toc:
 :toc-placement!:
 
-= SQL Conventions
+= SQL Conventions (v2)
 
 toc::[]
 
@@ -39,9 +39,9 @@ for PK and FK.
 
 ==== Columns
 
-* Column names in *camelCase*, e.g. `+createdAt+`
-* Only use underscore for PK and FK columns e.g. (PK) `+user_id+`, (FK)
-`+organization_id+`
+* Column names in *snake_case*, e.g. `+created_at+`. Because in PostgreSQL (https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
+* Use double underscore for PK and FK columns e.g. (PK) `+user__id+`, (FK)
+`+organization__id+`
 * NOT NULL by default, NULL is the exception (think of it as the
 https://github.com/chrissrogers/maybe#why[maybe Monad])
 * pas d’abbréviations des mots sauf pour des expressions bien connues et
