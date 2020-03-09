@@ -31,19 +31,19 @@ reverse-proxy.
 
 ==== Table/Views name
 
-* singular (e.g. `+team+` not `+teams+`) (https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations[Here is why])
-* snake_case (e.g. `block_theme_version`)
-* double underscore for `+n-n+` tables (e.g. `user__organization`)
+* *singular* (e.g. `+team+` not `+teams+`) (https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations[Here is why])
+* *snake_case* (e.g. `block_theme_version`)
+* *double underscore* for `+n-n+` tables (e.g. `user__organization`)
 
 ==== Columns
 
-* snake_case (e.g. `+created_at+`, not `+createdAt+` or `CreatedAt`) (Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
-* double underscore for PK and FK columns (e.g. (PK) `+user__id+`, (FK) `+organization__id+`)
+* *snake_case* (e.g. `+created_at+`, not `+createdAt+` or `CreatedAt`) (Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
+* *double underscore* for PK and FK columns (e.g. (PK) `+user__id+`, (FK) `+organization__id+`)
 `+organization__id+`)
-* `NOT NULL` by default, NULL is the exception (think of it as the https://github.com/chrissrogers/maybe#why[maybe Monad])
-* No abbreviation unless it's both well-known and very long like `i18n`
-* No reserved keywords (https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html[Complete list])
-* Use UUID as PK and FK (https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/[Where is why]), (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_serial[do not use `serial`])
+* *`NOT NULL` by default*, NULL is the exception (think of it as the https://github.com/chrissrogers/maybe#why[maybe Monad])
+* *No abbreviation* unless it's both well-known and very long like `i18n`
+* *No reserved keywords* (https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html[Complete list])
+* *Use UUID* as PK and FK (https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/[Where is why]), (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_serial[do not use `serial`])
 * Use `timestamptz` everywhere you need to store a date (e.g. `+createdAt TIMESTAMPTZ DEFAULT now()+` (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29[Here is why]))
 * `+updatedAt TIMESTAMPTZ DEFAULT now()+` unless you plan to leverage
 event-sourcing
