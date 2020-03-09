@@ -348,3 +348,18 @@ DESC LIMIT 20;
 == Good practices
 
 * https://hakibenita.com/sql-dos-and-donts[12 Common Mistakes and Missed Optimization Opportunities in SQL]
+
+== Where to host PostgreSQL Database
+
+* Scaleway Managed PostgreSQL:
+  * Pros
+    * multi-schema support
+    * configuration options are editable
+    * user/role management is self-service
+  * Cons
+    * /
+* OVH Cloud SQL
+  * Pros
+    * /
+  * Cons
+    * no multi-schema support
