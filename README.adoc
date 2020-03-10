@@ -332,12 +332,16 @@ DESC LIMIT 20;
 * https://github.com/darold/pgbadger[A fast PostgreSQL Log Analyzer]
 * https://pganalyze.com[PostgreSQL Performance Monitoring]
 
+== Migrations
+
+- https://pythonspeed.com/articles/schema-migrations-server-startup/[How to do Zero-downtime migrations]
+- https://medium.com/braintree-product-technology/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680[Database Schema Changes Without Downtime]
 
 == Good practices
 
 * https://hakibenita.com/sql-dos-and-donts[12 Common Mistakes and Missed Optimization Opportunities in SQL]
 
-== Where to host PostgreSQL Database
+== Managed PostgreSQL Databases
 
 * Google Cloud PostgreSQL
   ** Pros
