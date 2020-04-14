@@ -96,15 +96,15 @@ send metadata (ids), data should be asked by workers through the API. If
 you really wish to send data then
 https://github.com/xstevens/pg_kafka[pg_kafka] might be a better
 alternative.
-* *private*, format: _[`+_functionName_+`]
-(e.g. `+_resetFailedLogin+`): must never be exposed through the public
+* *private*, format: _[`+_function_name_+`]
+(e.g. `+_reset_failed_login+`): must never be exposed through the public
 schema. Used mainly for consistency and business-rules
-* *public*, format [`+_functionName_+`] (e.g. `+logIn(email, password)+`): must be
+* *public*, format [`+_function_name_+`] (e.g. `+log_in(email, password)+`): must be
 exposed through the public schema.
 
 === Types
 
-Enum types should be in _singular_, in *camelCase**.
+Enum types should be in _singular_, in *snake_case**.
 
 === Triggers
 
