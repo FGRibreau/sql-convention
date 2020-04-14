@@ -168,11 +168,6 @@ create table reservation(
 
 ==== Name
 
-==== Zero-down time migrations
-
-* https://medium.com/braintree-product-technology/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680[Best
-practices]
-
 == Things to monitor
 
 ____
@@ -335,7 +330,7 @@ DESC LIMIT 20;
 == Migrations
 
 - https://pythonspeed.com/articles/schema-migrations-server-startup/[How to do Zero-downtime migrations]
-- https://medium.com/braintree-product-technology/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680[Database Schema Changes Without Downtime]
+- https://medium.com/braintree-product-technology/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680[Zero-downtime migrations best practices]
 
 == Good practices
 
