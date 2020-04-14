@@ -37,8 +37,8 @@ reverse-proxy.
 
 ==== Columns
 
-* *snake_case* (e.g. `+created_at+`, not `+createdAt+` or `CreatedAt`) (Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive]).
-* *double underscore* for PK and FK columns (e.g. (PK) `+user__id+`, (FK) `+organization__id+`)
+* *snake_case* (for example: `+created_at+`. Not `+createdAt+` or `CreatedAt`) Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive].
+* *double underscore* for PK and FK columns (e.g. (PK) `+user__id+`, (PK) `+user__id+`, (FK) `+organization__id+`, (FK)
 `+organization__id+`)
 * *`NOT NULL` by default*, NULL is the exception (think of it as the https://github.com/chrissrogers/maybe#why[maybe Monad])
 * *No abbreviation* unless it's both well-known and very long like `i18n`
