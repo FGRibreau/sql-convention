@@ -50,7 +50,7 @@ event-sourcing
 * `+deleted_at TIMESTAMPTZ DEFAULT NULL+`:
 ** unless you plan to leverage event-sourcing
 ** don’t forget to
-http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253[`+deletedAt+`]
+http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253[`+deleted_at+`]
 * Comment each column, explain your rational, explain your decisions, should be in plain english
 * Boolean columns must start with either `+is+` or `+has+`.
 * https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29[Don't use char(n)]
@@ -59,29 +59,29 @@ https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29_even_fo
 === Constraints
 
 General rule is: `+{tablename}_{columnname(s)}_{suffix}+`
-(e.g. `+tableName_columnNameA_pkey+`) where the suffix is one of the
+(e.g. `+table_name_column_name_a__pkey+`) where the suffix is one of the
 following: * Primary Key constraint: `+pk+` * Foreign key: `+fk+` *
 Unique constraint: `+key+` * Check constraint: `+chk+` * Exclusion
 constraint: `+exl+` * Any other kind of index: `+idx+`
 
 ==== PK - Primary Key
 
-* `+tableName_columnName_pk+` in case of a single column PK
-* `+tableName_columnName1_columnName2_columnName3_pk+` in case of
-multiple columns as primary key (`+columnName1+`, `+columnName2+`,
-`+columnName3+`)
+* `+table_name_column_name_pk+` in case of a single column PK
+* `+table_name_column_name1_column_name2_column_name3_pk+` in case of
+multiple columns as primary key (`+column_name1+`, `+column_name2+`,
+`+column_name3+`)
 
 ==== FK - Foreign key
 
-* `+tableNameFrom_column_tableNameTo_column_fk+`
+* `+table_name_from_column_table_name_to_column__fk+`
 
 ==== Unique
 
-* `+tableNameFrom_column_key+` in case of a single column unique
+* `+table_name_from_column_key+` in case of a single column unique
 constraint
-* `+tableName_columnName1_columnName2_columnName3_key+` in case of
-multiple columns as unique (`+columnName1+`, `+columnName2+`,
-`+columnName3+`)
+* `+table_name_column_name1_column_name2_column_name3__key+` in case of
+multiple columns as unique (`+column_name1+`, `+column_name2+`,
+`+column_name3+`)
 
 === Functions
 
@@ -90,7 +90,7 @@ multiple columns as unique (`+columnName1+`, `+columnName2+`,
 They are 3 types of functions, `+notify+` functions and `+private+`
 functions and `+public+` functions
 
-* *notify*, format: notify[_SchemaName_][_TableName_][_Event_] (e.g. `+notifyAuthenticationUserCreated(user_id)+`): should only format the notification message underneath and use pg_notify. Beware of the
+* *notify*, format: notify[_schema_name_][_table_name_][_event_] (e.g. `+notify_authentication_user_created(user_id)+`): should only format the notification message underneath and use pg_notify. Beware of the
 http://stackoverflow.com/a/41059797/745121[8000 characters limit], only
 send metadata (ids), data should be asked by workers through the API. If
 you really wish to send data then
