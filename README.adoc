@@ -27,6 +27,11 @@ reverse-proxy.
 * Don’t use BETWEEN
 (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29[why])
 
+
+=== DDL - Data Description Language
+
+* `SET search_path=pg_catalog` to force to explicitely specify schema names in every object declaration (besides triggers). This will lower bugs and gives better understanding to developers because [explicit > implicit](https://getnobullshit.com).
+
 === Tables/Views
 
 ==== Table/Views name
