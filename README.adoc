@@ -79,6 +79,7 @@ multiple columns as primary key (`+column_name1+`, `+column_name2+`,
 ==== FK - Foreign key
 
 * `+table_name_from_column_table_name_to_column__fk+`
+* Always specify `ON DELETE` `ON UPDATE` in order to force *you* to think about reference consequences
 
 ==== Unique
 
