@@ -110,7 +110,7 @@ exposed through the public schema.
 
 === Types
 
-Enum types should be in _singular_, in *snake_case**.
+Enum types : don't use them, you will have issue over time because [you cannot remove element from an enum](https://stackoverflow.com/a/25812436/745121).
 
 === Triggers
 
@@ -143,7 +143,7 @@ select <fields> from
 ----
 
 * don’t use PostgreSQL enums you will have issues when you need to
-remove/add some values. Use a dedicated table instead.
+[remove some values over time](https://stackoverflow.com/a/25812436/745121). Use a dedicated table instead.
 * use the right PostgreSQL types:
 
 ....
