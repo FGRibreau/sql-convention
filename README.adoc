@@ -360,3 +360,13 @@ DESC LIMIT 20;
     *** /
   ** Cons
     *** no multi-schema support
+
+== Where is this convention used?
+
+- @Netwo
+- @OuestFrance
+- @MotionDynamic_
+- @Oxmoto
+- @iAdvize
+- @Bringr
+- @Redsmin
