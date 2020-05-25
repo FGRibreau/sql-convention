@@ -65,9 +65,14 @@ https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_char.28n.29_even_fo
 
 General rule is: `+{tablename}_{columnname(s)}_{suffix}+`
 (e.g. `+table_name_column_name_a__pkey+`) where the suffix is one of the
-following: * Primary Key constraint: `+pk+` * Foreign key: `+fk+` *
-Unique constraint: `+key+` * Check constraint: `+chk+` * Exclusion
-constraint: `+exl+` * Any other kind of index: `+idx+`
+following: 
+
+* Primary Key constraint: `+pk+` 
+* Foreign key: `+fk+`
+* Unique constraint: `+key+` 
+* Check constraint: `+chk+` 
+* Exclusion constraint: `+exl+` 
+* Any other kind of index: `+idx+`
 
 ==== PK - Primary Key
 
