@@ -115,7 +115,15 @@ exposed through the public schema.
 
 === Types
 
-Enum types : don't use them, you will have issue over time because [you cannot remove element from an enum](https://stackoverflow.com/a/25812436/745121).
+==== Enum types
+
+Don't use enums, you will have issue over time because [you cannot remove element from an enum](https://stackoverflow.com/a/25812436/745121).
+
+==== Boolean
+
+Always use `true` and `false`, without single-quote.
+
+PostgreSQL documentation says that `TRUE` and `FALSE` should be prefered because they are more SQL compliant but hey, LET'S STOP YELLING WHEN WE WRITE SQL SHALL WE?
 
 === Triggers
 
