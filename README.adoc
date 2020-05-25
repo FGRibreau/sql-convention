@@ -113,6 +113,21 @@ schema. Used mainly for consistency and business-rules
 * *public*, format [`+_function_name_+`] (e.g. `+log_in(email, password)+`): must be
 exposed through the public schema.
 
+==== Parameters
+
+Every parameter name must ends with `$`. This will prevent any "Reference to XXX is ambiguous" issue.
+
+===== Example 
+
+```sql
+create function lib_fsm.transition_create(
+  from_state__id$ uuid, 
+  event$ varchar(30), 
+  to_state__id$ uuid, 
+  description$ text default null
+)
+```
+
 === Types
 
 ==== Enum types
