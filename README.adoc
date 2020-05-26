@@ -2,7 +2,7 @@
 :toc-placement!:
 
 = SQL Conventions 
-> The only SQL convention you will ever need.
+==== The only SQL convention you will ever need.
 
 toc::[]
 
