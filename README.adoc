@@ -1,7 +1,8 @@
 :toc:
 :toc-placement!:
 
-= SQL Conventions (v2)
+= SQL Conventions 
+> The only SQL convention you will ever need.
 
 toc::[]
 
