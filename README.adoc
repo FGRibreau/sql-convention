@@ -142,6 +142,11 @@ Always use `true` and `false`, without single-quote.
 
 PostgreSQL documentation says that `TRUE` and `FALSE` should be prefered because they are more SQL compliant but hey, LET'S STOP YELLING WHEN WE WRITE SQL SHALL WE?
 
+
+==== String
+
+- Multi-line string must be represented with `$_$my string$_$`
+
 === Triggers
 
 ==== Name
