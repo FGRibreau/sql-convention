@@ -209,8 +209,15 @@ create table reservation(
 
 ==== Name
 
+== SQL Formatter
+
+```bash
+docker run --rm --network=none guriandoro/sqlparse:0.3.1 "SELECT several, columns from a_table as a join another_table as b where a.id = 1;"
+```
+
 == Things to monitor
 
+- https://www.percona.com/blog/2020/05/29/removing-postgresql-bottlenecks-caused-by-high-traffic/[Removing PostgreSQL Bottlenecks Caused by High Traffic]
 ____
 Your cache hit ratio tells you how often your data is served from in
 memory vs. having to go to disk. Serving from memory vs. going to disk
