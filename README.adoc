@@ -32,7 +32,7 @@ reverse-proxy.
 
 === DDL - Data Description Language
 
-* `SET search_path=pg_catalog` to force to explicitely specify schema names in every object declaration (besides triggers). This will lower bugs and gives better understanding to developers because (https://getnobullshit.com)[explicit > implicit].
+* `SET search_path=pg_catalog` to force to explicitely specify schema names in every object declaration (besides triggers). This will lower bugs and gives better understanding to developers because (https://getnobullshit.com/)[explicit > implicit].
 
 === Tables/Views
 
