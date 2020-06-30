@@ -387,21 +387,28 @@ DESC LIMIT 20;
 == Managed PostgreSQL Databases
 
 * Google Cloud PostgreSQL
-  ** Pros
-  ** Cons
-   *** No support for plv8
+** Pros
+** Cons
+*** No support for plv8
+*** Any features that require `superuser` privileges are not supported
+*** `postgres` role is not a `superuser`
+**** Can create roles
+**** Can not select from tables that are restricted by default like `pg_shadow`
+**** Thus can not edit `pg_catalog.pg_class` (in order to change row level security activation for example)
+**** Can read from all necessary tables other than `pg_authid`
+**** 
 * Scaleway Managed PostgreSQL:
-  ** Pros
-    *** multi-schema support
-    *** configuration options are editable
-    *** user/role management is self-service
-  ** Cons
-    *** /
+** Pros
+*** multi-schema support
+*** configuration options are editable
+*** user/role management is self-service
+** Cons
+*** /
 * OVH Cloud SQL
-  ** Pros
-    *** /
-  ** Cons
-    *** no multi-schema support
+** Pros
+*** /
+** Cons
+*** no multi-schema support
 
 == Where is this convention used?
 
