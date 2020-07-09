@@ -3,6 +3,8 @@
 
 = SQL Conventions 
 
+image::https://img.shields.io/badge/Slack-Join%20our%20tech%20community-17202A?logo=slack[link=https://join.slack.com/t/fgribreau/shared_invite/zt-edpjwt2t-Zh39mDUMNQ0QOr9qOj~jrg]
+
 ==== The only SQL convention you will ever need.
 
 toc::[]
