@@ -136,7 +136,7 @@ create function lib_fsm.transition_create(
 
 ==== Enum types
 
-Don't use enums, you will have issue over time because [you cannot remove element from an enum](https://stackoverflow.com/a/25812436/745121).
+Don't use enums, you will have issue over time because https://stackoverflow.com/a/25812436/745121[you cannot remove element from an enum].
 
 ==== Boolean
 
@@ -179,8 +179,7 @@ select <fields> from
     using (table_1_id)
 ----
 
-* don’t use PostgreSQL enums you will have issues when you need to
-[remove some values over time](https://stackoverflow.com/a/25812436/745121). Use a dedicated table instead.
+* don’t use PostgreSQL enums you will have issues when you need to https://stackoverflow.com/a/25812436/745121[remove some values over time]. Use a dedicated table instead.
 * use the right PostgreSQL types:
 
 ....
