@@ -216,6 +216,28 @@ create table reservation(
 docker run --rm --network=none guriandoro/sqlparse:0.3.1 "SELECT several, columns from a_table as a join another_table as b where a.id = 1;"
 ```
 
+=== Configuration
+
+
+==== `statement_timeout`
+
+Since we do want to https://www.getnobullshit.com/[limit everything in space and time], configure `statement_timeout` on role to let your database abort any statement that takes more than the specified amount of time (in ms).
+
+```sql
+-- Limit in time SQL queries => improve overall reliability
+-- https://www.postgresql.org/docs/current/runtime-config-client.html
+-- PostgreSQL WILL ABORT any statement that takes more than the specified amount of time (in milliseconds)
+-- If you do have an issue with that, please first (from first to last):
+--  - .. check that your query is relying on indices (did you use EXPLAIN (ANALYZE, BUFFERS) ?)
+--  - .. consider materialized views
+--  - .. ensure pg cache settings are OK
+--  - .. ensure the disk is SSD and fast enough
+--  - .. ensure the server has enough CPU & RAM
+--  - .. check if its for analytics purposes, if so then requesting a postgres replica might be a better idea
+-- When all these above points were evaluated *then* we can all talk about increasing the values below :)
+alter role APP_ROLE_THAT_DOES_THE_QUERY set statement_timeout to '250ms';
+```
+
 == Things to monitor
 
 - https://www.percona.com/blog/2020/05/29/removing-postgresql-bottlenecks-caused-by-high-traffic/[Removing PostgreSQL Bottlenecks Caused by High Traffic]
