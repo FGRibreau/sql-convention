@@ -408,6 +408,7 @@ DESC LIMIT 20;
 == Good practices
 
 * https://hakibenita.com/sql-dos-and-donts[12 Common Mistakes and Missed Optimization Opportunities in SQL]
+* https://pythonspeed.com/articles/schema-migrations-server-startup/[Don't apply migrations on application startup]
 
 == Managed PostgreSQL Databases
 
