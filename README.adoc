@@ -137,6 +137,7 @@ create function lib_fsm.transition_create(
 ==== Enum types
 
 Don't use enums, you will have issue over time because https://stackoverflow.com/a/25812436/745121[you cannot remove element from an enum].
+If your enums represent various state, leverage https://en.wikipedia.org/wiki/Finite-state_machine[a state machine]. Use a library like https://github.com/netwo-io/lib_fsm[lib_fsm].
 
 ==== Boolean
 
