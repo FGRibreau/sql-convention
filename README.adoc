@@ -31,6 +31,21 @@ reverse-proxy.
 * Don’t use BETWEEN
 (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29[why])
 
+* Prefer = to LIKE
+
+____
+LIKE compares characters, and can be paired with wildcard operators like %, whereas the = operator compares strings and numbers for exact matches. The = can take advantage of indexed columns. (https://www.metabase.com/learn/building-analytics/sql-templates/sql-best-practices[source])
+____
+
+* 
+
+* Prefer `EXIST` to `IN`
+
+____
+If you just need to verify the existence of a value in a table, prefer EXISTS to IN, as the EXISTS process exits as soon as it finds the search value, whereas IN will scan the entire table. IN should be used for finding values in lists.
+Similarly, prefer NOT EXISTS to NOT IN. (https://www.metabase.com/learn/building-analytics/sql-templates/sql-best-practices[source])
+____
+
 
 === DDL - Data Description Language
 
