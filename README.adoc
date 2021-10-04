@@ -61,9 +61,14 @@ ____
 
 ==== Columns
 
-* *snake_case* (for example: `+created_at+`. Not `+createdAt+` or `CreatedAt`) Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive].
+* *snake_case* (for example: `+created_at+`. Not `+createdAt+` or `CreatedAt`) Because in PostgreSQL https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS[keywords and unquoted identifiers are case insensitive] and is the source of many mistakes.
 * *double underscore* for PK and FK columns (e.g. (PK) `+user__id+`, (PK) `+user__id+`, (FK) `+organization__id+`, (FK)
 `+organization__id+`)
+ ** why?
+   *** leverage `using(column__id)`
+   *** easier to grasp for PK/FK the table name part (the part before `__`) for snake_case columns
+   *** Column are case-sensitive in postgresql but SQL queries are case insensitive
+
 * *`NOT NULL` by default*, NULL is the exception (think of it as the https://github.com/chrissrogers/maybe#why[maybe Monad])
 * *No abbreviation* unless it's both well-known and very long like `i18n`
 * *No reserved keywords* (https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html[Complete list])
