@@ -73,6 +73,12 @@ ____
 * *No abbreviation* unless it's both well-known and very long like `i18n`
 * *No reserved keywords* (https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html[Complete list])
 * *Use UUID* as PK and FK (https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/[Where is why]), (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_serial[do not use `serial`]) rely on `gen_random_uuid()` (https://shusson.info/post/benchmark-v4-uuid-generation-in-postgres[benchmark])
+  * Note that when you use Postgres native UUID v4 type instead of bigserial, table size grows by 25% and insert rate drops to 25%.
+  * If you choose bigserial than distinguish internal and external ids (e.g. gitlab internal schema design names column "iid" those that are publicly shared to the end user). Don't forget to add an index `CREATE UNIQUE INDEX index_issues_on_project_id_and_iid ON public.issues USING btree (project_id, iid);`
+* Use `text` or `citext` (variable unlimited length) with check constraint instead of `varchar(n)` or `char(n)`.
+  * `text` type with CHECK constraint allows you to evolve the schema easily compared to character varying or varchar(n) when you have length checks. ([source](https://shekhargulati.com/2022/07/08/my-notes-on-gitlabs-postgres-schema-design/))
+
+
 * Use `timestamptz` everywhere you need to store a date (e.g. `+created_at TIMESTAMPTZ DEFAULT now()+` (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29[Here is why])) and leverage the https://www.postgresql.org/docs/current/brin-intro.html[BRIN] index on it
 * `+updated_at TIMESTAMPTZ DEFAULT now()+` unless you plan to leverage
 event-sourcing
