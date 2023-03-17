@@ -78,7 +78,7 @@ ____
 * Use `text` or `citext` (variable unlimited length) with check constraint instead of `varchar(n)` or `char(n)`.
   * `text` type with CHECK constraint allows you to evolve the schema easily compared to character varying or varchar(n) when you have length checks. ([source](https://shekhargulati.com/2022/07/08/my-notes-on-gitlabs-postgres-schema-design/))
 
-### Handling date
+#### Date time management
 * Use `timestamptz` everywhere you need to store a date (e.g. `+created_at TIMESTAMPTZ DEFAULT now()+` (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29[Here is why])) and leverage the https://www.postgresql.org/docs/current/brin-intro.html[BRIN] index on it
 * `+updated_at TIMESTAMPTZ DEFAULT now()+` unless you plan to leverage
 event-sourcing
