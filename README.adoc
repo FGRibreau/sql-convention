@@ -176,6 +176,49 @@ PostgreSQL documentation says that `TRUE` and `FALSE` should be prefered because
 
 - Multi-line string must be represented with `$_$my string$_$`
 
+
+==== JSONB
+
+- prefer `+jsonb+` to `json` and sql arrays. Jsonb has improved query performance and efficient storage
+ 
+
+- A `metadata` jsonb column is a great way to let the end-user store arbitrary key-value data to these objects. (e.g. https://documentation.hook0.com/docs/metadata https://stripe.com/docs/api/metadata )
+
+metadata key-value pair must be https://www.getnobullshit.com/tech-lead/tout-limiter-dans-lespace-et-dans-le-temps[limited in space] you can use a trigger for that:
+
+[source,sql]
+----
+CREATE OR REPLACE FUNCTION validate_metadata()
+RETURNS TRIGGER AS $$
+DECLARE
+    key TEXT;
+    value TEXT;
+    keys INT;
+BEGIN
+    keys := 0;
+
+    FOR key, value IN (SELECT * FROM jsonb_each_text(NEW.metadata))
+    LOOP
+        keys := keys + 1;
+
+        IF length(key::text) > 40 OR length(value::text) > 500 THEN
+            RAISE 'Key and value must be at most 40 and 500 characters long respectively.';
+        END IF;
+
+        IF keys > 50 THEN
+            RAISE 'A maximum of 50 keys are allowed in the metadata.';
+        END IF;
+    END LOOP;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER validate_metadata_trigger
+BEFORE INSERT OR UPDATE ON your_table
+FOR EACH ROW EXECUTE FUNCTION validate_metadata();
+----
+
 === Triggers
 
 ==== Name
@@ -217,7 +260,6 @@ tstzrange (time range)
 interval (duration)
 ....
 
-* prefer `+jsonb+` to `json` and sql arrays
 * constraint should be inside your database as much as possible:
 
 [source,sql]
