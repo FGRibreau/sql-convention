@@ -8,6 +8,8 @@ image::https://img.shields.io/badge/Slack-Join%20our%20tech%20community-17202A?l
 
 ==== The only SQL convention you will ever need.
 
+This convention is used @cloud_iam_com @Netwo @OuestFrance @hook0 @iAdvize @Bringr @Redsmin @Oxmoto.
+
 toc::[]
 
 === Data layer
@@ -505,15 +507,3 @@ DESC LIMIT 20;
 *** /
 ** Cons
 *** no multi-schema support
-
-
-== Where is this convention used?
-
-- @Netwo
-- @OuestFrance
-- @MotionDynamic_
-- @hook0
-- @Oxmoto
-- @iAdvize
-- @Bringr
-- @Redsmin
