@@ -83,7 +83,7 @@ ____
 
 #### Date time management
 * Use `timestamptz` everywhere you need to store a date (e.g. `+created_at TIMESTAMPTZ DEFAULT now()+` (https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29[Here is why])) and leverage the https://www.postgresql.org/docs/current/brin-intro.html[BRIN] index on it
-* `+updated_at TIMESTAMPTZ DEFAULT now()+` unless you plan to leverage
+* `+updated_at TIMESTAMPTZ DEFAULT now()+` unless you plan to leverage (https://www.morling.dev/blog/last-updated-columns-with-postgres/[learn more])
 event-sourcing
 * `+deleted_at TIMESTAMPTZ DEFAULT NULL+`:
 ** unless you plan to leverage event-sourcing
